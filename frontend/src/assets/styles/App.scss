@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Hammersmith+One&family=Paytone+One&display=swap);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://pro.fontawesome.com/releases/v5.10.0/css/all.css);
+@import './Variables.scss';
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    font-family: $main-font;
+    color: white;
+}
+
+body {
+    background-color: $background;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+//Responsive
+@media only screen and (min-width: 600px) {
+
+    /* Scrollbars */
+    /* Tamaño del scroll */
+    *::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    /* Estilos barra (thumb) de scroll */
+    *::-webkit-scrollbar-thumb {
+        background: #e1e1e1;
+        border-radius: 5px;
+    }
+
+    *::-webkit-scrollbar-thumb:active {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+        background: #d4d4d4;
+        /* box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2); */
+    }
+
+    /* Estilos track de scroll */
+    *::-webkit-scrollbar-track {
+        background: $overaly;
+        border-radius: 4px;
+    }
+
+    // *::-webkit-scrollbar-track:hover,
+    // *::-webkit-scrollbar-track:active {
+    //     background: #6e6e6e;
+    // }
+}

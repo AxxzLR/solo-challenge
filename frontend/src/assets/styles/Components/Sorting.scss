@@ -1,0 +1,29 @@
+@import '../Variables.scss';
+
+.Sorting {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Sorting__select {
+    width: 100%;
+    background-color: transparent;
+    background-color: rgba($color: $overaly, $alpha: 0.7);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.Sorting__direction {
+    font-size: 35px;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: 500ms;
+}
+
+.Sorting__direction:hover {
+    color: $contrast;
+}

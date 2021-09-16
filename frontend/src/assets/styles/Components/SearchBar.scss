@@ -1,0 +1,48 @@
+@import '../Variables.scss';
+
+.SearchBar,
+.SearchBar--active {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    background-color: $background;
+    justify-content: center;
+    align-items: center;
+}
+
+.SearchBar--active {
+    display: flex;
+}
+
+.SearchBar__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $overaly, $alpha: 0.7);
+    border-radius: 10px;
+}
+
+.SearchBar__icon {
+    font-size: 30px;
+    padding: 0 20px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SearchBar__input {
+    flex: 100%;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    padding: 5px;
+}

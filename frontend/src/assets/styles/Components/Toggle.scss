@@ -1,0 +1,26 @@
+@import '../Variables.scss';
+
+.Toggle,
+.Toggle--active {
+    width: 50px;
+    padding: 5px;
+    background-color: $overaly;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.Toggle--active {
+    background-color: $contrast;
+    justify-content: flex-end;
+}
+
+.Toggle__dot {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+}

@@ -1,0 +1,57 @@
+@import '../Variables.scss';
+
+.TaskList {
+    width: 100%;
+    height: calc(100% - 164px);
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.TaskList__section {
+    width: 100%;
+    background-color: $overaly;
+    margin-bottom: 15px;
+    padding: 15px 15px 5px;
+    border-radius: 10px;
+}
+
+.Section__title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.Section__container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.TaskList__empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.Empty__main {
+    text-align: center;
+    font-size: 20px;
+    font-family: $impact-font;
+    margin-bottom: 10px;
+}
+
+.Empty__secondary {
+    text-align: center;
+}
+
+@media only screen and (min-width: 800px) {
+    .TaskList {
+        height: calc(100% - 190px);
+    }
+}

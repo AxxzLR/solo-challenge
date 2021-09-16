@@ -1,0 +1,46 @@
+@import '../Variables.scss';
+
+.Filters {
+    width: 100%;
+}
+
+.Filters__toggle {
+    padding: 5px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Filters__deadline {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.Filters__date {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.Date__container {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Date__input {
+    margin-top: 10px;
+    width: 100%;
+    background-color: transparent;
+    background-color: rgba($color: $overaly, $alpha: 0.7);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+}
