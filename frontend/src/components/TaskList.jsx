@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import "../assets/styles/Components/TaskList.scss";
 import { SectionTypes } from "./Filters";
 import { SortingTypes, SortDirectionTypes } from "./Sorting";
+import Empty from "./Empty";
 
 export const ViewTypes = {
   LIST_VIEW: "LIST_VIEW",
@@ -61,6 +62,7 @@ const TaskList = ({ ToDos, Settings }) => {
   if (Settings.Sort.SortDirectionType === SortDirectionTypes.DESC)
     tasks = tasks.reverse();
 
+  //Armado de vistas
   const GetView = (tasks) => {
     switch (Settings.ViewType) {
       case ViewTypes.LIST_VIEW:
@@ -95,22 +97,20 @@ const TaskList = ({ ToDos, Settings }) => {
         break;
     }
   };
-  //#endregion
 
   const data = Object.entries(GetView(tasks))
     .map((x) => x[1])
     .filter((x) => x.Tasks.length);
+  //#endregion
 
-  console.log(data);
+  //#region 
+  
+  //#endregion
+
   return (
     <div className="TaskList">
       {!data.length ? (
-        <div className="TaskList__empty">
-          <p className="Empty__main">¡Esto parece estar vacio!</p>
-          <p className="Empty__secondary">
-            Empieza a crear una nueva tarea o cambia tu configuración de filtros
-          </p>
-        </div>
+        <Empty />
       ) : (
         data.map((x) => (
           <div key={x.title} className="TaskList__section">

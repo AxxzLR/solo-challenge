@@ -82,6 +82,11 @@ const reducer = (state, action) => {
                     }
                 }
             }
+        case actionTypes.SET_TO_DOS:
+            return {
+                ...state,
+                ToDos: action.payload
+            }
         default:
             return state
     }

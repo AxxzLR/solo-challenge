@@ -38,27 +38,6 @@ const Filters = ({
           </div>
         );
       })}
-      {/* <div className="Filters__deadline">
-        <p>Fecha límite</p>
-        <div className="Filters__date">
-          <div className="Date__container">
-            <p>Inicio</p>
-            <input
-              className="Date__input"
-              type="date"
-              value={FilterDeadline.Start}
-            />
-          </div>
-          <div className="Date__container">
-            <p>Fin</p>
-            <input
-              className="Date__input"
-              type="date"
-              value={FilterDeadline.End}
-            />
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

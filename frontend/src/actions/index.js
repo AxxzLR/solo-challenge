@@ -5,7 +5,8 @@ export const actionTypes = {
     SET_SORT_DIRECTION: 'SET_SORT_DIRECTION',
     SET_SORTING_TYPE: 'SET_SORTING_TYPE',
     SET_ENABLED_SECTION: 'SET_ENABLED_SECTION',
-    SET_DEADLINE_FILTER: 'SET_DEADLINE_FILTER'
+    SET_DEADLINE_FILTER: 'SET_DEADLINE_FILTER',
+    SET_TO_DOS: 'SET_TO_DOS',
 }
 
 export const setViewType = payload => (
@@ -53,6 +54,13 @@ export const setEnabledSection = payload => (
 export const setDeadlineFilter = payload => (
     {
         type: actionTypes.SET_DEADLINE_FILTER,
+        payload,
+    }
+)
+
+export const setToDos = payload => (
+    {
+        type: actionTypes.SET_TO_DOS,
         payload,
     }
 )

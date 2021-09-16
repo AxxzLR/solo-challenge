@@ -24,7 +24,7 @@ const SearchBar = ({
           value={searchValue}
         />
         <div onClick={handleClean} className="SearchBar__icon">
-          <FontAwesome nameIcon="fas fa-trash-alt" />
+          <FontAwesome nameIcon="fas fa-times" />
         </div>
       </div>
     </div>

@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Api } from "../utils/Api";
+import { connect } from "react-redux";
+import { setToDos } from "../actions";
 import duck from "../assets/static/rubber-duck.svg";
 import "../assets/styles/Home.scss";
 import Filters from "../components/Filters";
@@ -7,13 +10,16 @@ import Sorting from "../components/Sorting";
 import TaskList from "../components/TaskList";
 import ToolBar from "../components/ToolBar";
 
-const Home = () => {
+const Home = ({ setToDos }) => {
+  useEffect(async () => {
+    const result = await Api.Todos.GetAll();
+    if (!result.hasError) setToDos(result.data);
+  }, []);
+
   const [swhoFilters, setShowFilters] = useState(false);
   const [showSorting, setShowSorting] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
-  // const cleanFilters = () => {
-  //   console.log("LimpiarFiltros");
-  // };
+
   return (
     <>
       <div className="TitleBar">
@@ -32,8 +38,6 @@ const Home = () => {
         title="Filtros"
         content={<Filters />}
         handleClose={() => setShowFilters(false)}
-        // secondaryTitle="Limpiar"
-        // handleSecondary={cleanFilters}
       />
       {/* Ordenar */}
       <Modal
@@ -53,4 +57,14 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => ({
+  ViewType: state.Settings.ViewType,
+  SearchEnabled: state.Settings.Search.enabled,
+  SearchText: state.Settings.Search.text,
+});
+
+const mapDispatchToProps = {
+  setToDos,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

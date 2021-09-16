@@ -4,13 +4,14 @@ import "../assets/styles/Components/TaskItemRow.scss";
 import FontAwesome from "./FontAwesome";
 
 const TaskItemRow = ({
-  title='',
+  title = "",
   deadline,
-  important=false,
-  completed=false,
+  important = false,
+  completed = false,
   onComplete,
   onPin,
   onEdit,
+  onDelete,
 }) => {
   const actualClassPinned = !important
     ? "TaskItemRow__pinned"
@@ -34,6 +35,11 @@ const TaskItemRow = ({
           handleClick={onComplete}
           classAdd={actualClassCompleted}
           nameIcon="fas fa-check"
+        />
+        <FontAwesome
+          handleClick={onComplete}
+          classAdd={actualClassCompleted}
+          nameIcon="fas fa-trash"
         />
       </div>
     </div>

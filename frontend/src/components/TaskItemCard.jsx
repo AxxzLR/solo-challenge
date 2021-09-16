@@ -12,6 +12,7 @@ const TaskItemCard = ({
   onComplete,
   onPin,
   onEdit,
+  onDelete,
 }) => {
   const actualClassPinned = !important
     ? "TaskItemCard__pinned"
@@ -42,11 +43,18 @@ const TaskItemCard = ({
         <p className="TaskItemCard__date">
           Fecha líimite: {GetStringDate(deadline) || "Sin asignar"}
         </p>
-        <FontAwesome
-          handleClick={onPin}
-          classAdd={actualClassPinned}
-          nameIcon="fas fa-thumbtack"
-        />
+        <div className="TaskItemCard__actions">
+          <FontAwesome
+            handleClick={onPin}
+            classAdd={actualClassPinned}
+            nameIcon="fas fa-thumbtack"
+          />
+          <FontAwesome
+            handleClick={onDelete}
+            classAdd="TaskItemCard__pinned"
+            nameIcon="fas fa-trash"
+          />
+        </div>
       </div>
     </div>
   );
