@@ -1,6 +1,7 @@
 @import '../Variables.scss';
 
-.Modal, .Modal--active {
+.Modal,
+.Modal--active {
     width: 100%;
     height: 100%;
     background-color: rgba($color: $overaly, $alpha: 0.7);
@@ -11,7 +12,8 @@
     padding: 25px 40px;
     display: none;
 }
-.Modal--active{
+
+.Modal--active {
     display: flex;
 }
 
@@ -31,11 +33,15 @@
 .Modal__footer {
     background-color: $background;
     width: 100%;
-    padding: 15px;
 }
 
 .Modal__header {
     border-radius: 10px 10px 0 0;
+    padding: 15px 15px 0;
+}
+
+.Modal__body {
+    padding: 15px;
 }
 
 .Modal__footer {
@@ -43,6 +49,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding: 0 15px 15px;
 }
 
 .Modal__title {

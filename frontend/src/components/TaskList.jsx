@@ -2,23 +2,26 @@ import React from "react";
 import TaskItemRow from "../components/TaskItemRow";
 import TaskItemCard from "../components/TaskItemCard";
 import { connect } from "react-redux";
+import { setToDos } from "../actions";
 import "../assets/styles/Components/TaskList.scss";
 import { SectionTypes } from "./Filters";
 import { SortingTypes, SortDirectionTypes } from "./Sorting";
 import Empty from "./Empty";
+import { Api } from "../utils/Api";
+import { ModeEditTypes } from "../components/Editor";
 
 export const ViewTypes = {
   LIST_VIEW: "LIST_VIEW",
   BOARD_VIEW: "BOARD_VIEW",
 };
 
-const TaskList = ({ ToDos, Settings }) => {
+const TaskList = ({ ToDos, Settings, setToDos, UpdateToDo, OpenEditor }) => {
   //#region Acondicionamiento de información
   const getStatus = (task) => {
     const now = Date.now();
     if (task.completed) return SectionTypes.COMPLETED.name;
     if (!task.deadLine) return SectionTypes.NO_DUE_DATE.name;
-    if (now >= task.deadLine) return SectionTypes.NEXT.name;
+    if (now <= task.deadLine) return SectionTypes.NEXT.name;
     else return SectionTypes.OVERUDE.name;
   };
 
@@ -103,8 +106,20 @@ const TaskList = ({ ToDos, Settings }) => {
     .filter((x) => x.Tasks.length);
   //#endregion
 
-  //#region 
-  
+  //#region Manejo de Tareas
+  const DeleteToDo = async (id = 0) => {
+    const result = await Api.Todos.Delete(id);
+    if (!result.hasError) setToDos(result.data);
+  };
+
+  const ChangeCompletedToDo = (id = 0, value = false) => {
+    UpdateToDo(id, [{ key: "completed", value }]);
+  };
+
+  const ChangePinedToDo = (id = 0, value = false) => {
+    UpdateToDo(id, [{ key: "important", value }]);
+  };
+
   //#endregion
 
   return (
@@ -128,6 +143,12 @@ const TaskList = ({ ToDos, Settings }) => {
                         deadline={p.deadLine}
                         important={p.important}
                         completed={p.completed}
+                        onEdit={() => OpenEditor(ModeEditTypes.UPDATE, p.id)}
+                        onDelete={() => DeleteToDo(p.id)}
+                        onComplete={() =>
+                          ChangeCompletedToDo(p.id, !p.completed)
+                        }
+                        onPin={() => ChangePinedToDo(p.id, !p.important)}
                       />
                     );
                   case ViewTypes.BOARD_VIEW:
@@ -139,6 +160,12 @@ const TaskList = ({ ToDos, Settings }) => {
                         important={p.important}
                         completed={p.completed}
                         description={p.description}
+                        onEdit={() => OpenEditor(ModeEditTypes.UPDATE, p.id)}
+                        onDelete={() => DeleteToDo(p.id)}
+                        onComplete={() =>
+                          ChangeCompletedToDo(p.id, !p.completed)
+                        }
+                        onPin={() => ChangePinedToDo(p.id, !p.important)}
                       />
                     );
                 }
@@ -156,6 +183,8 @@ const mapStateToProps = (state) => ({
   Settings: state.Settings,
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  setToDos,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

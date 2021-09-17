@@ -112,7 +112,7 @@ export const Api = {
             const result = await requestMethods.GET('todos', [id])
             return result
         },
-        async insert(data) {
+        async Create(data) {
             const result = await requestMethods.POST('todos', data)
             return result
         },

@@ -44,6 +44,7 @@ const ToolBar = ({
   };
 
   const enableSearch = () => {
+    document.querySelector("#txtSearch").focus();
     setEnabledSearch(true);
   };
 

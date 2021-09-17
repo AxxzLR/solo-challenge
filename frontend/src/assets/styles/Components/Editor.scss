@@ -1,0 +1,81 @@
+@import '../Variables.scss';
+
+.Editor {
+    width: 100%;
+}
+
+.Editor__section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.Editor__input {
+    width: 100%;
+    background-color: rgba($color: $overaly, $alpha: 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.Input--text,
+.Input--textarea {
+    background-color: transparent;
+    width: 100%;
+    font-size: 18px;
+    border: none;
+    // border-bottom: 1px solid white;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.Input--textarea {
+    font-size: 14px;
+    width: 100%;
+    resize: none
+}
+
+.Editor__input--date {
+    width: 100%;
+    background-color: transparent;
+    background-color: rgba($color: $overaly, $alpha: 0.7);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.Editor__input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
+.Editor__pinned,
+.Editor__pinned--active {
+    font-size: 30px;
+    margin-left: 15px;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.Editor__pinned--active {
+    color: $contrast;
+}
+
+.Editor__pinned:hover {
+    color: $contrast;
+}
+
+.Editor__pinned--active:hover {
+    color: $contrast-dark;
+}
+
+.Editor__info {
+    font-size: 12px;
+}

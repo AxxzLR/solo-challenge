@@ -87,6 +87,30 @@ const reducer = (state, action) => {
                 ...state,
                 ToDos: action.payload
             }
+        case actionTypes.SET_EDITOR_CONFIG:
+            return {
+                ...state,
+                Editor: {
+                    ModeEditType: action.payload.modeEdit,
+                    values: action.payload.values
+                }
+            }
+        case actionTypes.SET_EDITOR_VALUES:
+            return {
+                ...state,
+                Editor: {
+                    ...state.Editor,
+                    values: {
+                        ...state.Editor.values,
+                        [action.payload.key]: action.payload.value
+                    }
+                }
+            }
+        case actionTypes.CLEAN_EDITOR_CONFIG:
+            return {
+                ...state,
+                Editor: {}
+            }
         default:
             return state
     }

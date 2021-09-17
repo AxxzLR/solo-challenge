@@ -11,6 +11,7 @@ import { SortingTypes, SortDirectionTypes } from './components/Sorting'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const initialState = {
     ToDos: [],
+    Editor: {},
     Settings: {
         Filter: {
             Sections: {
@@ -28,7 +29,7 @@ const initialState = {
             SortingType: SortingTypes.TITLE.value,
             SortDirectionType: SortDirectionTypes.ASC
         },
-        ViewType: ViewTypes.BOARD_VIEW,
+        ViewType: ViewTypes.LIST_VIEW,
         Search: {
             enabled: false,
             text: '',

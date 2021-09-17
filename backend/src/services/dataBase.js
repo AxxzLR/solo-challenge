@@ -49,17 +49,17 @@ module.exports = {
             if (!validateObject(data)) return null
 
             aData.push(data)
-            return writeToFile(aData) ? data.id : null
+            return writeToFile(aData) ? aData : null
         }
         catch { return null }
     },
     update: (id, data) => {
         try {
-            if (!id) return false
+            if (!id) return null
 
             const aData = readFile()
             const pData = aData.filter(x => x.id === id)[0]
-            if (!pData) return false
+            if (!pData) return null
 
             const nData = aData.filter(x => x.id !== id)
 
@@ -70,26 +70,26 @@ module.exports = {
                 lastUpdate: Date.now()
             }
 
-            if (!validateObject(data)) return false
+            if (!validateObject(data)) return null
 
             nData.push(data)
             nData.sort((a, b) => a.id - b.id)
 
-            return writeToFile(nData)
+            return writeToFile(nData) ? nData : null
         }
-        catch { return false }
+        catch { return null }
     },
     delete: (id) => {
         try {
-            if (!id) return false
+            if (!id) return null
             const aData = readFile()
 
             const pData = aData.filter(x => x.id === id)[0]
-            if (!pData) return false
+            if (!pData) return null
 
             const nData = aData.filter(x => x.id !== id)
-            return writeToFile(nData)
+            return writeToFile(nData) ? nData : null
         }
-        catch { return false }
+        catch { return null }
     }
 }

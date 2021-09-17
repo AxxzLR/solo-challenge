@@ -30,7 +30,7 @@ router.put('/:id', (req, res) => {
     const nData = req.body
     const data = db.update(id, nData)
     if (data)
-        res.status(200).json()
+        res.json(data)
     else
         res.status(400).json()
 })
@@ -39,7 +39,7 @@ router.delete('/:id', (req, res) => {
     const id = parseInt(req.params.id)
     const data = db.delete(id)
     if (data)
-        res.status(200).json()
+        res.json(data)
     else
         res.status(400).json()
 })

@@ -27,9 +27,11 @@ const TaskItemCard = ({
       : description;
 
   return (
-    <div className="TaskItemCard" onClick={onEdit}>
+    <div className="TaskItemCard">
       <div className="TaskItemCard__container">
-        <p className="TaskItemCard__title">{title}</p>
+        <p className="TaskItemCard__title" onClick={onEdit}>
+          {title}
+        </p>
         <FontAwesome
           handleClick={onComplete}
           classAdd={actualClassCompleted}

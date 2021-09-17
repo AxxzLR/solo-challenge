@@ -8,6 +8,8 @@ const Modal = ({
   handleClose,
   secondaryTitle = "",
   handleSecondary,
+  confirmTitle = "",
+  handleConfirm,
 }) => {
   const actualClass = !show ? "Modal" : "Modal--active";
   return (
@@ -26,6 +28,11 @@ const Modal = ({
           <button className="Modal__close" onClick={handleClose}>
             Cerrar
           </button>
+          {!!confirmTitle && (
+            <button className="Modal__close" onClick={handleConfirm}>
+              {confirmTitle}
+            </button>
+          )}
         </div>
       </div>
     </div>

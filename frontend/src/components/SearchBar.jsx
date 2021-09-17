@@ -18,6 +18,7 @@ const SearchBar = ({
           <FontAwesome nameIcon="fas fa-arrow-circle-left" />
         </div>
         <input
+          id="txtSearch"
           className="SearchBar__input"
           placeholder="Buscar..."
           onInput={handleInput}

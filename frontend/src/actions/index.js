@@ -7,6 +7,9 @@ export const actionTypes = {
     SET_ENABLED_SECTION: 'SET_ENABLED_SECTION',
     SET_DEADLINE_FILTER: 'SET_DEADLINE_FILTER',
     SET_TO_DOS: 'SET_TO_DOS',
+    SET_EDITOR_CONFIG: 'SET_EDITOR_CONFIG',
+    SET_EDITOR_VALUES: 'SET_EDITOR_VALUES',
+    CLEAN_EDITOR_CONFIG: 'CLEAN_EDITOR_CONFIG'
 }
 
 export const setViewType = payload => (
@@ -61,6 +64,27 @@ export const setDeadlineFilter = payload => (
 export const setToDos = payload => (
     {
         type: actionTypes.SET_TO_DOS,
+        payload,
+    }
+)
+
+export const setEditorConfig = payload => (
+    {
+        type: actionTypes.SET_EDITOR_CONFIG,
+        payload,
+    }
+)
+
+export const setEditorValues = payload => (
+    {
+        type: actionTypes.SET_EDITOR_VALUES,
+        payload,
+    }
+)
+
+export const cleanEditorConfig = payload => (
+    {
+        type: actionTypes.CLEAN_EDITOR_CONFIG,
         payload,
     }
 )
