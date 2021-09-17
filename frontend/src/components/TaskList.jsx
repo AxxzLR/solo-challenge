@@ -44,8 +44,8 @@ const TaskList = ({ ToDos, Settings, setToDos, UpdateToDo, OpenEditor }) => {
   if (Settings.Search.text)
     tasks = tasks.filter(
       (x) =>
-        x.title.includes(Settings.Search.text) ||
-        x.description.includes(Settings.Search.text)
+        x.title.toUpperCase().includes(Settings.Search.text.toUpperCase()) ||
+        x.description.toUpperCase().includes(Settings.Search.text.toUpperCase())
     );
 
   //Ordenado
